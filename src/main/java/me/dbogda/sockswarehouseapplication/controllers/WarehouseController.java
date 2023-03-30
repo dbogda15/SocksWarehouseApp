@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/warehouse")
+@RequestMapping("/socks/api")
 public class WarehouseController {
 
     private final WarehouseService warehouseService;
@@ -22,7 +22,7 @@ public class WarehouseController {
         this.warehouseService = warehouseService;
     }
 
-    @PostMapping("/input")
+    @PostMapping("/post")
     @Operation(summary = "Here you can enter information about receiving socks to the warehouse.")
     @ApiResponses(value = {
             @ApiResponse(
@@ -46,7 +46,7 @@ public class WarehouseController {
         return ResponseEntity.ok(socksInfo);
     }
 
-    @GetMapping("/print")
+    @GetMapping("/get")
     @Operation(
             summary = "Here you can print about the stock of socks in the web application",
             description = "You have to put MIN >= 0 and MAX <= 100"
@@ -74,7 +74,7 @@ public class WarehouseController {
         return ResponseEntity.ok(socksList);
     }
 
-    @PutMapping("/output")
+    @PutMapping("/put")
     @Operation(summary = "Here you can enter the information about unloading socks from the warehouse")
     @ApiResponses(value = {
             @ApiResponse(
